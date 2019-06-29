@@ -1,0 +1,793 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LUMIERE</title>
+<style>
+/*-------------------------------------- reset --------------------------------------*/
+* {margin:0; padding:0;}
+li {list-style:none;}
+img {display:block;}
+body {font-family:나눔스퀘어, 맑은고딕, 나눔고딕, Verdana, Geneva, sans-serif;}
+a {text-decoration:none;}
+
+/*-------------------------------------- top_btn --------------------------------------*/
+body {position:relative;}
+.top_btn {width:76px; height:98px;
+		  position:fixed; bottom:30px; right:30px;
+		  z-index:99;}
+
+/*-------------------------------------- quick --------------------------------------*/
+.quick_sheet {position:fixed; top:24%; right:0;
+			  background-color:white;
+			  z-index:998;}
+			  
+.quick_btn1 {position:fixed; top:45%; right:0;
+			 z-index:999;
+			 cursor:pointer;}
+
+.quick_btn2 {position:fixed; top:45%; right:131px;
+			 z-index:999;
+			 cursor:pointer;}
+
+.quick_cart {width:15px;
+			 margin:20px auto 0 auto;
+			 cursor:pointer;}
+
+.quick_sheet {width:130px; height:470px;
+			  border:1px solid #eee4b4;}
+
+.product_txt {width:105px;
+			  margin:10px auto 20px auto;
+			  color:#515151;}
+			  
+.quick_sheet .product {width:100px; height:100px;
+						border:1px solid #eee4b4;
+						margin:0 0 10px 13px;
+						cursor:pointer;}
+
+.quick_arrow {overflow:hidden; margin-top:20px;}	
+.quick_arrow1 {float:left; margin-left:16px;
+				cursor:pointer;}	
+.quick_arrow2 {float:right; margin-right:20px;
+				cursor:pointer;}
+				
+#chk {display:none;}
+#chk ~ .quick_btn1 {display:block;}
+#chk ~ .quick_btn2 {display:none;}
+#chk:checked ~ .quick_btn2 {display:block;}
+#chk:checked ~ .quick_btn1 {display:none;}
+#chk ~ .quick_sheet {display:none;}
+#chk:checked ~ .quick_sheet {display:block;}
+		
+/*-------------------------------------- pop_up --------------------------------------*/		
+body {position:relative;}
+.popup1 {position:fixed; bottom:10px; left:10px;
+			  z-index:9999;}
+
+.x_btn {position:fixed; bottom:370px; left:274px;
+		z-index:99999;
+		cursor:pointer;}
+				
+#pop_chk {display:none;}
+#pop_chk:checked ~ .x_btn {display:none;}
+#pop_chk:checked ~	.popup1 {display:none;}				
+					
+/*-------------------------------------- header --------------------------------------*/
+#header {width:100%; height:70px;
+		 background-color:rgba(255,255,255,90%);
+		 border-bottom:1px solid #EEE;
+		 position:fixed; top:0;
+		 z-index:10;}
+
+.header_w {content:""; display:block; clear:both;
+		   width:1600px;
+		   margin:0 auto;}
+
+.lnb {content:""; display:block; clear:both;}
+
+.lnb li {float:left;
+		 width:109px;
+		 font-size:17px; font-weight:700; color:#555;
+		 height:70px; line-height:70px;
+		 cursor:pointer;}
+
+.lnb a {color:#555;}
+
+.lnb_drop li:hover{color:#eee4b4;}
+.lnb_drop a:hover{color:#eee4b4;}
+
+.lnb_p {margin-right:20px;}
+
+.lnb_drop {background-color:rgba(255,255,255,90%);
+		   width:100px; height:80px;
+		   display:none;
+		   padding-left:15px;
+		   margin-left:-20px;}
+
+.lnb li li {height:30px; line-height:30px;
+			padding-top:10px; box-sizing:border-box;
+			font-size:15px;
+			cursor:pointer;}
+		   
+.lnb_p:hover .lnb_drop {display:block;}		   
+
+.logo, .lnb_bar {float:left;}
+
+.logo {float:left;
+	   margin:3px 60px 0 0;}
+
+
+.gnb_bar {float:right;}
+
+.gnb {content:""; display:block; clear:both;}
+
+.gnb li {float:left;
+		 width:4.3em; height:70px; line-height:70px;
+		 cursor:pointer;}
+
+.gnb_m {margin-right:30px;}
+		 
+.gnb li li {width:4.3em; height:28px; line-height:28px;
+			padding-top:10px; box-sizing:border-box;
+			font-size:15px;
+			cursor:pointer;}	 
+
+.search_bar {width:310px; height:40px;
+				 border:1px solid #757575;
+				 margin-top:27px;
+				 padding:0 10px; box-sizing:border-box;}
+
+#search_chk {display:none;}
+#search_chk ~ .search_bar {display:none;}
+#search_chk:checked ~ .search_bar {display:block;}
+
+.gnb .gnb_img1 {cursor:auto;}
+.serach_btn {cursor:pointer;}
+
+.gnb li li:hover {color:#eee4b4;}
+
+.gnb ul {width:4.3em; height:78px;
+		 padding-left:15px;
+		 margin-left:-20px;
+		 background-color:rgba(255,255,255,90%);
+		 display:none;}
+.gnb .gnb_m ul{height:107px; margin-left:-8px;}
+
+.gnb li:hover ul {display:block;}
+		 
+.gnb .gnb_img {margin-top:26px; width:17px;}
+
+.gnb .gnb_img1 {margin-right:30px;}
+.gnb .gnb_img2 {margin-left:10px;}
+
+/*-------------------------------------- visual --------------------------------------*/
+.main_visual {width:1600px; height:900px;
+			 	   margin:70px auto 0 auto;
+				   position:relative;}
+
+.visual_txt {font-family:'Playfair Display', serif;
+			 position:absolute;
+			 color:#515151;
+			 z-index:1;}
+
+.visual_txt1 {font-size:32px; top:315px; right:180px;}
+.visual_txt2 {font-size:24px; top:365px; right:230px;}
+
+.visual_gbtn {width:300px; height:60px;
+			  border:1px solid #515151;
+			  text-align:center; line-height:60px;
+			  font-size:18px;
+			  top:440px; right:190px;
+			  cursor:pointer;}
+
+.visual_gbtn:hover {background-color:rgba(255,255,255,30%);}
+
+/*-------------------------------------- content1 --------------------------------------*/
+.content1 {width:1280px;
+			margin:0 auto;
+			background-color:white;}
+
+.contents_title {width:350px; height:50px;
+				 text-align:center; line-height:50px;
+				 font-size:21px; color:#555;
+				 border-bottom:1px solid #eee4b4;
+				 margin:0 auto;
+				 margin-bottom:40px;}
+
+.content1_img {width:1280px; height:967px;
+				position:relative;
+				cursor:pointer;}
+
+.romy_txt_wrap {position:absolute; top:30px; left:10px;}
+
+.romy {font-family:'Playfair Display', serif;
+	   font-size:40px;
+	   margin-bottom:10px;
+	   color:#555;}
+
+.romy_sub {color:#949496;
+		   margin-bottom:33px;
+		   font-size:17px;
+		   font-style:italic;}
+
+.romy_txt li {height:27px;
+			  font-size:17px;
+			  color:#555;}
+			  
+/*-------------------------------------- content2 --------------------------------------*/			  
+.banner_img {width:1600px;
+		  	 margin:70px auto;}
+
+		 
+/*-------------------------------------- content3 --------------------------------------*/			  	
+.content3 {overflow:hidden;
+			margin-bottom:70px;}
+
+.content3_sub_wrap {width:1290px;
+					margin:0 auto;
+					overflow:hidden;}
+
+.content3_btn {float:left;
+			   font-size:18px; color:#CCC;
+			   cursor:pointer;}
+			   
+.content3_btn_wrap {overflow:hidden;
+					width:300px;
+					margin:0 auto;
+					overflow:hidden;}
+					
+.content3_btn1 {float:left;}			  		  
+.content3_btn2 {float:right;}			  
+
+.content3_sheet, .content3_sheet2 {overflow:hidden;}
+
+.content3_sheet>div {width:300px; height:300px;
+					 float:left;
+					 margin-right:30px;}
+					 
+.content3_sheet2>div {width:300px; height:300px;
+					 float:left;
+					 margin-right:30px;}					 
+					 
+.content3_sheet .s_4, .content3_sheet .s_8 {margin-right:0;}
+
+.content3_sheet2 .g_4, .content3_sheet2 .g_8 {margin-right:0;}
+
+.s_txt {width:300px; text-align:center;
+		float:left;
+		margin-right:30px;
+		margin-top:-20px;
+		color:#515151;}
+
+.g_txt {width:300px; text-align:center;
+		float:left;
+		margin-right:30px;
+		margin-top:-20px;
+		color:#515151;}
+		
+.s4_txt, .s8_txt {margin-right:0;}
+
+.g4_txt, .g8_txt {margin-right:0;}
+
+.s_txt2 {color:#eee4b4;
+		 margin-top:10px;}
+
+.g_txt2 {color:#eee4b4;
+		 margin-top:10px;}
+
+.s_1 {width:300px; height:300px;
+	  background-image:url(img/00_front_VERUS_RT_E6013_C1.jpg);
+	  cursor:pointer;}
+.s_1:hover {width:300px; height:300px;
+	  		background-image:url(img/00_79000_VERUS_RT_E6013_C1.jpg);}	  
+
+.s_2 {width:300px; height:300px;
+	  background-image:url(img/11_FRONT_BLANCHE_RT_C4009_C1.jpg);
+	  cursor:pointer;}
+.s_2:hover {width:300px; height:300px;
+	  		background-image:url(img/11_78000.jpg);}
+
+.s_3 {width:300px; height:300px;
+	  background-image:url(img/19_LUMEN_RT_E6009_C3.jpg);
+	  cursor:pointer;}
+.s_3:hover {width:300px; height:300px;
+	  		background-image:url(img/19_138000.jpg);}
+			
+.s_4 {width:300px; height:300px;
+	  background-image:url(img/17_MINUIT_RT_E6001_C4.jpg);
+	  cursor:pointer;}
+.s_4:hover {width:300px; height:300px;
+	  		background-image:url(img/17_138000.jpg);}
+			
+.s_5 {width:300px; height:300px;
+	  background-image:url(img/23_MINUIT_RT_E6001_C1.jpg);
+	  cursor:pointer;}
+.s_5:hover {width:300px; height:300px;
+	  		background-image:url(img/23_138000.jpg);}
+			
+.s_6 {width:300px; height:300px;
+	  background-image:url(img/21_ASTRA_RT_E6012_C3.jpg);
+	  cursor:pointer;}
+.s_6:hover {width:300px; height:300px;
+	  		background-image:url(img/21_138000.jpg);}			
+			
+.s_7 {width:300px; height:300px;
+	  background-image:url(img/02_front_STELLA_RT-85_C1.jpg);
+	  cursor:pointer;}
+.s_7:hover {width:300px; height:300px;
+	  		background-image:url(img/02_side_49000.jpg);}			
+						
+.s_8 {width:300px; height:300px;
+	  background-image:url(img/05_front_FLUFFY_SL706_C2.jpg);
+	  cursor:pointer;}
+.s_8:hover {width:300px; height:300px;
+	  		background-image:url(img/05_SIDE_29000.jpg);}			
+		
+						
+.g_1 {width:300px; height:300px;
+	  background-image:url(img/4_49000won.jpg);
+	  cursor:pointer;}
+.g_1:hover {width:300px; height:300px;
+	  		background-image:url(img/3_SOAVE_RTGA170011GB.jpg);}	  
+
+.g_2 {width:300px; height:300px;
+	  background-image:url(img/2_49000won.jpg);
+	  cursor:pointer;}
+.g_2:hover {width:300px; height:300px;
+	  		background-image:url(img/1_LICORNE_RTGA739G.jpg);}
+
+.g_3 {width:300px; height:300px;
+	  background-image:url(img/40_49000.jpg);
+	  cursor:pointer;}
+.g_3:hover {width:300px; height:300px;
+	  		background-image:url(img/39_SCALA_RTGA782B.jpg);}
+			
+.g_4 {width:300px; height:300px;
+	  background-image:url(img/33_CIELO_RTGB1284_C1.jpg);
+	  cursor:pointer;}
+.g_4:hover {width:300px; height:300px;
+	  		background-image:url(img/34_49000.jpg);}
+			
+.g_5 {width:300px; height:300px;
+	  background-image:url(img/28_49000.jpg);
+	  cursor:pointer;}
+.g_5:hover {width:300px; height:300px;
+	  		background-image:url(img/27_EMON_RTGA720B.jpg);}
+			
+.g_6 {width:300px; height:300px;
+	  background-image:url(img/40_49000.jpg);
+	  cursor:pointer;}
+.g_6:hover {width:300px; height:300px;
+	  		background-image:url(img/39_SCALA_RTGA782B.jpg);}			
+			
+.g_7 {width:300px; height:300px;
+	  background-image:url(img/30_49000.jpg);
+	  cursor:pointer;}
+.g_7:hover {width:300px; height:300px;
+	  		background-image:url(img/29_OAVE_RTGA170011G.jpg);}			
+						
+.g_8 {width:300px; height:300px;
+	  background-image:url(img/46_49000won.jpg);
+	  cursor:pointer;}
+.g_8:hover {width:300px; height:300px;
+	  		background-image:url(img/45_SCALA_RTGA782G.jpg);}			
+			  
+#chk1, #chk2 {display:none;}		  
+#chk1:checked ~ .content3_btn_wrap .content3_btn1 {color:#eee4b4;}			
+#chk2:checked ~ .content3_btn_wrap .content3_btn2 {color:#eee4b4;}			  
+#chk1 ~ .content3_sheet {display:none;}		  
+#chk2 ~ .content3_sheet2 {display:none;}				  
+#chk1:checked ~ .content3_sheet {display:block;}
+#chk2:checked ~ .content3_sheet2 {display:block;} 
+			  
+/*-------------------------------------- content4 --------------------------------------*/				  
+.content4_img {width:1280px;
+			   margin:0 auto;
+			   cursor:pointer;}
+			   
+.content4_img_btn {overflow:hidden;
+				   width:1404px; height:600px;
+				   margin:0 auto;
+				   position:relative;}
+				
+.content4_btn1 {float:left;
+				margin-right:40px;
+				margin-top:300px;
+				cursor:pointer;}		  
+
+.content4_btn2 {float:right;
+				margin-left:40px;
+				margin-top:300px;
+				cursor:pointer;}				  
+			  
+.content4_btn1, .content4_img {float:left;}			  
+
+
+.content4_txt {font-family:'Playfair Display', serif;
+				position:absolute;
+				z-index:2;
+				color:#515151;}
+
+.content4_txt1 {font-size:32px; top:195px; left:210px;}
+.content4_txt2 {font-size:25px; top:255px; left:255px;}
+
+.content4_gbtn {width:250px; height:60px;
+		  		border:1px solid #515151;
+			 	text-align:center; line-height:60px;
+			 	font-size:18px;
+				cursor:pointer;
+				top:375px; left:300px;}
+
+.content4_gbtn:hover {background-color:rgba(255,255,255,30%);}			  
+/*-------------------------------------- footer --------------------------------------*/			  
+.footer1 {overflow:hidden;
+		  width:100%; height:60px;
+		  border:solid #EEE; border-width:1px 0;
+		  margin-top:70px;
+		  color:#515151;}
+
+.footer1 li {float:left;
+			 margin-right:70px;
+			 font-size:17px;
+			 height:60px; line-height:60px;
+			 cursor:pointer;}		  
+			  
+.footer1_txt_box {width:480px;
+				  margin:0 auto;}			  
+
+			  
+.footer2 {width:1280px;
+		  margin:90px auto 10px auto;
+		  overflow:hidden;
+		  color:#515151;
+		  font-size:15px;}			  
+
+.footer2_1 {float:left;}
+.footer2_1, .footer2_2, .footer2_3  {float:left;}
+
+.footer2_1 {width:160px; margin:40px 100px 0 0;}
+
+.footer2_2, .footer2_3 {margin-right:100px;}
+
+.footer2_2 li {height:30px; line-height:30px;}
+
+.footer2_3 li {height:30px; line-height:30px;}
+
+.footer2_3_txt1 {font-size:17px;
+				 margin-bottom:10px;}
+
+.footer2_3_txt2 {font-size:28px;
+				 margin:0 0 20px 16px; color:#eee4b4;}
+
+.footer2_3_txt3, .footer2_3_txt4, .footer2_3_txt5 {margin-left:16px;}
+
+
+.footer2_4 ul {overflow:hidden;}
+
+.footer2_4 .sns_img {float:left;
+					  margin:10px 20px 30px 0;
+					  cursor:pointer;}
+					
+.first_sns_img {padding-left:16px;}					
+				
+.footer2_4_txt {font-size:16px;}
+					  
+.footer2_4 .last_sns_img {margin-right:0;}
+
+.footer2_4_email, .footer2_4_btn {float:left;}
+
+.footer2_4_email {width:190px; height:30px;
+				  padding:0 10px; margin:10px 0 0 16px;}
+.footer2_4_btn {width:80px; height:34px;
+				background-color:#eee4b4; margin-top:10px;
+				cursor:pointer;}
+
+.footer2_5 {float:right;
+			margin:40px 0 40px 0;
+			font-size:13px;
+			color:#CCC;}
+			  
+span {color:#eee4b4; font-size:26px;}		  
+</style>
+</head>
+
+<body>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+<!-------------------------------------- top_btn -------------------------------------->
+<div class="top_btn"><a href="#top"><img src="img/top.png"></a></div>
+
+<!-------------------------------------- quick -------------------------------------->
+<input type="checkbox" id="chk">
+
+<label for="chk" class="quick_btn1"><img src="img/quick_btn1.jpg"></label>
+<label for="chk" class="quick_btn2"><img src="img/quick_btn2.jpg"></label>
+  
+    <div class="quick_sheet">
+    	<div class="quick_cart"><img src="img/cart.png"></div>
+        <ul>
+    		<li class="product_txt">[ 최근 본 상품 ]</li>
+        	<li class="product product1"><img src="img/00_front_VERUS_RT_E6013_C1.jpg" width="100px"></li>
+        	<li class="product product2"><img src="img/2_49000won.jpg" width="100px"></li>
+        	<li class="product product3"><img src="img/11_FRONT_BLANCHE_RT_C4009_C1.jpg" width="100px"></li>
+        </ul>
+        <ul class="quick_arrow">
+        	<li class="quick_arrow1"><img src="img/arrow1.png"></li>
+            <li class="quick_arrow2"><img src="img/arrow2.png"></li>
+        </ul>
+	</div>
+    
+<!-------------------------------------- pop_up -------------------------------------->    
+<section class="popup">
+	<input type="checkbox" id="pop_chk">
+
+	<div class="popup1"><img src="img/popup1.jpg"></div>
+    
+    <label for="pop_chk" class="x_btn"><img src="img/popup_xbtn.png"></label>
+
+</section>
+              
+<!-------------------------------------- header -------------------------------------->
+<section id="header">
+
+	<section class="header_w">
+	
+		<div class="logo"><img src="img/logo02.png" width="140px"></div>
+		<div class="lnb_bar">
+    		<ul class="lnb">
+        		<li>BRAND</li>
+            	<li class="lnb_p">PRODUCT
+                	<ul class="lnb_drop">
+                    	<li>Sunglasses</li>
+                        <li>Glasses</li>
+                    </ul>
+                </li>
+            	<li>EVENT</li>
+            	<li>REVIEW</li>
+            	<li>#LOOKBOOK</li>
+        	</ul>
+    	</div>
+		<div class="gnb_bar">
+    		<ul class="gnb">
+        		<li class="gnb_img gnb_img1">
+                    <input type="checkbox" id="search_chk">
+                    <label for="search_chk" class="serach_btn"><img src="img/search.png"></label>
+                    <input type="search" class="search_bar" placeholder="찾으시는 상품의 정보를 입력해주세요."> 
+                </li>
+            	<li>login
+                	<ul>
+                    	<li>login</li>
+                        <li>join</li>
+  					</ul>
+                </li>
+            	<li class="gnb_m">mypage
+                	<ul>
+                    	<li>mypage</li>
+                        <li>order</li>
+                        <li>Q&amp;A</li>
+                	</ul>
+                </li>
+            	<li>notice
+                	<ul>
+                    	<li>공지사항</li>
+                        <li>FAQ</li>
+                    </ul>
+                </li>
+            	<li class="gnb_img gnb_img2"><img src="img/cart.png"></li>
+        	</ul>
+    	</div>
+	</section>
+    
+</section>
+
+<!-------------------------------------- visual -------------------------------------->
+<section id="top">
+
+<section class="main_visual">
+
+	<div><img src="img/visual_main.gif"></div>
+
+	<div class="visual_txt visual_txt1">Always make me shine</div>
+	<div class="visual_txt visual_txt2">The gift of LUMIERE</div>
+	<div class="visual_txt visual_gbtn">DISCOVER MORE</div>
+	
+</section>
+
+</section>
+<!-------------------------------------- content1 -------------------------------------->
+<section class="content1">
+	<div class="contents_title">LUMIERE'S NEW ITEMS</div>
+	<div class="content1_img"><img src="img/main_new_item.jpg">
+
+		<div class="romy_txt_wrap"> 
+			<div class="romy">ROMY</div>
+    		<div class="romy_sub">Round Frame &amp; Two bridge</div>
+    		<div class="romy_txt">
+    			<ul>
+    				<li class="romy_txt1">루미에르만의 라운드 프레임 디자인이 돋보이는 'ROMY'를 소개합니다.</li>
+            		<li class="romy_txt2">다양한 색상과 중성적인 디자인으로 제작된 유니섹스 제품으로,</li>
+            		<li class="romy_txt3">라운드 프레임에 특별한 투브릿지가 더해져</li>
+            		<li class="romy_txt4">데일리하면서도 세련된 인상을 연출하실 수 있습니다.</li>
+        		</ul>
+    		</div>
+    	</div>
+	</div>
+</section>
+
+<!-------------------------------------- content2 -------------------------------------->
+<div class="banner_img"><img src="img/banner.jpg"></div>
+
+
+<!-------------------------------------- content3 -------------------------------------->
+<section class="content3">
+	<div class="contents_title">LUMIERE'S BEST ITEMS</div>
+
+ 	<div class="content3_sub_wrap">   
+
+		<input type="radio" name="tab" id="chk1" checked="checked">
+    	<input type="radio" name="tab" id="chk2">
+ 
+ 		<div class="content3_btn_wrap">   
+    		<label for="chk1" class="content3_btn content3_btn1">Sunglasses</label>
+			<label for="chk2" class="content3_btn content3_btn2">Glasses</label>
+		</div>
+
+		<div class="content3_sheet">
+    		<div class="s_1"><a href="Team_Project_detail.html"><div class="s_1"></div></a></div>
+        	<div class="s_2"></div>
+        	<div class="s_3"></div>
+        	<div class="s_4"></div>
+            <ul class="s_txt s1_txt">
+                <li class="s_txt1">VERUS RT E6013 C1</li>
+                <li class="s_txt2">\79,000</li>            
+            </ul>            
+            <ul class="s_txt s2_txt">
+                <li class="s_txt1">BLNCHE RT C4009 C1</li>
+                <li class="s_txt2">\138,000</li>
+            </ul>
+            <ul class="s_txt s3_txt">
+                <li class="s_txt1">LUMEN RT E6009 C3</li>
+                <li class="s_txt2">\138,000</li>
+            </ul>                        
+            <ul class="s_txt s4_txt">
+                <li class="s_txt1">MINUIT RT E6001 C4</li>
+                <li class="s_txt2">\138,000</li>
+            </ul>     
+        	<div class="s_5"></div>
+        	<div class="s_6"></div>
+        	<div class="s_7"></div>
+        	<div class="s_8"></div>
+             <ul class="s_txt s5_txt">
+                <li class="s_txt1">MINUIT RT E6001 C1</li>
+                <li class="s_txt2">\139,000</li>
+            </ul>            
+            <ul class="s_txt s6_txt">
+                <li class="s_txt1">ASTRA_RT_E6012_C3</li>
+                <li class="s_txt2">\138,000</li>
+            </ul>
+            <ul class="s_txt s7_txt">
+                <li class="s_txt1">STELLA RT-85 C1</li>
+                <li class="s_txt2">\49,000</li>
+            </ul>                        
+            <ul class="s_txt s8_txt">
+                <li class="s_txt1">FLUFFY SL706 C2</li>
+                <li class="s_txt2">\129,000</li>
+            </ul>            
+    	</div>  
+
+		<div class="content3_sheet2">
+    		<div class="g_1"></div>
+        	<div class="g_2"></div>
+        	<div class="g_3"></div>
+        	<div class="g_4"></div>
+            <ul class="g_txt g1_txt">
+                <li class="g_txt1">SOAVE RTGA170011GB</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>            
+            <ul class="g_txt g2_txt">
+                <li class="g_txt1">LICORNE RTGA739G</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>
+            <ul class="g_txt g3_txt">
+                <li class="g_txt1">SCALA RTGA782B</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>                        
+            <ul class="g_txt g4_txt">
+                <li class="g_txt1">CIELO RTGB1284 C1</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>     
+        	<div class="g_5"></div>
+        	<div class="g_6"></div>
+        	<div class="g_7"></div>
+        	<div class="g_8"></div>
+             <ul class="g_txt g5_txt">
+                <li class="g_txt1">EMON RTGA720B</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>            
+            <ul class="g_txt g6_txt">
+                <li class="g_txt1">SCALA RTGA782B</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>
+            <ul class="g_txt g7_txt">
+                <li class="g_txt1">OAVE RTGA170011G</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>                        
+            <ul class="g_txt g8_txt">
+                <li class="g_txt1">SCALA RTGA782G</li>
+                <li class="g_txt2">\49,000</li>
+            </ul>            
+    	</div>
+		       
+	</div>
+</section>
+    
+<!-------------------------------------- content4 -------------------------------------->
+<section class="content4">
+	<div class="contents_title">2018 SUMMER LOOK BOOK</div>
+    	<div class="content4_img_btn">
+    		<div class="content4_btn1"><img src="img/slide_btn1.jpg"></div>	
+        	<div class="content4_img"><img src="img/lookbook.gif"></div>
+        	<div class="content4_btn2"><img src="img/slide_btn2.jpg"></div>
+    	
+			<div class="content4_txt content4_txt1">LUMIERE'S SUMMER EDITION</div>
+			<div class="content4_txt content4_txt2">for daily | for travel | for couple</div>
+			<div class="content4_txt content4_gbtn">DISCOVER MORE</div>
+		</div>
+</section>
+
+<!-------------------------------------- footer -------------------------------------->
+<section class="footer1">
+    	<ul class="footer1_txt_box">
+        	<li>공지사항</li>
+            <li>FAQ</li>
+            <li>Q&amp;A</li>
+            <li>정품인증</li>
+        </ul>
+</section>
+
+<section class="footer2">
+	<div class="footer2_1"><img src="img/logo02.png"></div>
+    <div class="footer2_2">
+    	<ul>
+        	<li>COMPANY NAME : LUMIERE</li>
+            <li>OWNER : 전하정</li>
+            <li>ADDRESS : 부산광역시 부산진구 새싹로</li>
+            <li>COMPANY REG.NO : 000-00-00000</li>
+            <li>ENTWORK REG.NO : 부산시 제00호</li>
+            <li>ACCOUNT : 국민 000000-00-0000 루미에르</li>
+        </ul>
+    </div>
+
+    <div class="footer2_3">
+    	<ul>
+        	<li class="footer2_3_txt1"><span>|</span> CS center</li>
+            <li class="footer2_3_txt2">1577-5678</li>
+            <li class="footer2_3_txt3">OPEN : 10:00AM ~ 06:00PM</li>
+            <li class="footer2_3_txt4">LUNCH : 12:30PM ~ 01:30PM</li>
+            <li class="footer2_3_txt5">CLOSE : Sat, Sun, Holiday</li>
+        </ul>
+    </div> 
+    
+    <div class="footer2_4">
+    	<ul>
+        	<li class="footer2_4_txt"><span>|</span> SOCIAL MEDIA</li>
+            <li class="sns_img first_sns_img"><img src="img/sns_t.jpg" width="35px"></li>
+            <li class="sns_img"><img src="img/sns_f.jpg" width="35px"></li>
+            <li class="sns_img"><img src="img/sns_i.jpg" width="35px"></li>
+            <li class="sns_img last_sns_img"><img src="img/sns_b.jpg" width="35px"></li>
+        </ul>    
+    	<ul>
+        	<li class="footer2_4_txt"><span>|</span> SUBSCRIBE NEWS LETTER</li>
+            <li><input type="email" placeholder="Your e-mail" class="footer2_4_email"></li>
+            <li><input type="button" value="SUBMIT" class="footer2_4_btn"></li>
+        </ul>
+    </div> 
+    
+    <div class="footer2_5">
+    	copyright ⓒ LUMIERE. All rights reserved.
+    </div>  
+           
+</section>
+
+</body>
+</html>

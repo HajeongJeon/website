@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+<title>PORTFOLIO BY HAJEONG</title>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+		<script type="text/javascript" src="js/scroll_menu.js"></script>
+		<style>
+			* { margin:0; padding:0; }
+			a {color:white; text-decoration:none;}
+			body {background-image:url(img/portfolio1.jpg); background-size:100% auto; font-family:Arial, Helvetica, sans-serif;}
+			
+			.wrap { width:1280px; margin:0 auto; padding-bottom:400px;}
+			#top_menu { position: fixed; width:1280px; height:114px; margin:0 auto; text-align:center; top:0px;}
+			#top_menu ul {float:right; margin-right:33px;}
+			#top_menu ul li { padding:59px 0px 0px 63px; float:left; list-style: none; color: #CCCCCC;}
+			#top_menu ul li a { color:#fff; text-decoration:none;}
+			#top_menu ul li.on a { color:#6ac5d2; font-weight:bold;} 
+			#logo {float:left; width:125px; padding-top:40px; color:#FFFFFF; z-index:1}
+			
+			#top_bt{display:none;width:30px;height:30px;font-size:12px;background:red;color:white;text-align:center;line-height:30px;position:fixed;right:0;bottom:10%;cursor:pointer;}
+			#contents div {padding-top:110px; margin-bottom:109px;}
+			#page1, #page2, #page3, #page4  {width:100%; height:876px;}
+			
+		/* page1------------------------------------------------*/
+		#page1 {overflow:hidden;}
+		
+		.name {color:white; position:absolute; top:600px; left:100px;
+					font-family:Arial, Helvetica, sans-serif; font-size:60px;
+					line-height:60px; box-sizing:border-box;
+					z-index:2; overflow:hidden;}
+		.hr1_0 {color:#6ac5d2; width:170px; margin-top:20px; overflow:hidden;
+				position:absolute; top:825px; left: 100px; width:170px;}
+		.star {position:absolute; top:730px; left:280px;}
+		.job {color:#6ac5d2; position:absolute; top:740px; left:335px;
+					font-family:Arial, Helvetica, sans-serif; font-size:24px;
+					z-index:2;}
+		
+		/* page2------------------------------------------------*/
+		.abt {color:white; position:absolute; top:1400px; left:360px;
+				font-family:Arial, Helvetica, sans-serif; font-size:60px;
+				line-height:60px; box-sizing:border-box;
+				z-index:2; overflow:hidden;}
+		.hr1_1 {position:absolute; top:1580px; left: 360px; width:170px;}				
+		.abt2 {color:white; position:absolute; top:1530px; left:360px;
+				font-family:Arial, Helvetica, sans-serif; font-size:24px;
+				line-height:24px; box-sizing:border-box;
+				z-index:2; overflow:hidden;}
+		
+		.shw_btn {text-align:center; line-height:30px;
+					 color:#6ac5d2; position:absolute; top:1650px; left:350px;
+					 font-size:30px; cursor:pointer;
+					 font-family: 'Bad Script', cursive; z-index:2;}	 
+					 
+		/*.shw_btn:hover {color:rgba(255,255,255,30%);}*/
+		
+		/* page3------------------------------------------------*/
+		.page3inner {width:1280px; height:876px;
+						background-image:url(img/portfolio4.jpg)}
+		.page3inner:hover {width:1280px; height:876px;
+						background-image:url(img/portfolio5.jpg)}
+		
+		.wbst {color:white; position:absolute; top:6350px; left:260px;
+				font-family:Arial, Helvetica, sans-serif; font-size:60px;
+				line-height:60px; box-sizing:border-box;}	
+		.hr1_2 {position:absolute; top:6415px; left: 260px; width:170px;}
+		.wbst2 {color:white; position:absolute; top:6420px; left:260px;
+				font-family:Arial, Helvetica, sans-serif; font-size:24px;
+				line-height:60px; box-sizing:border-box;}	
+				
+		.wbst3 {color:#6ac5d2; position:absolute; top:6410px; left:260px;
+				font-family: 'Bad Script', cursive; font-size:30px;
+				line-height:30px; box-sizing:border-box;}
+		/*.wbst3:hover {color:rgba(255,255,255,30%);}*/						
+		
+		#page3 {overflow:hidden;}
+		.sub3_5 {width:1280px; height:876px;
+					background-image:url(img/sub3_4.jpg);
+					overflow:hidden;}
+		.sub3_5:hover {width:1280px; height:876px;
+						background-image:url(img/sub3_5.jpg);
+						overflow:hidden;}
+						
+		.sub3_7 {width:1280px; height:876px;
+						background-image:url(img/sub3_6.jpg);
+						overflow:hidden;}
+		.sub3_7:hover {width:1280px; height:876px;
+						background-image:url(img/sub3_7.jpg);
+						overflow:hidden;}	
+
+		/* page4------------------------------------------------*/
+
+		.thnk {text-align:left; line-height:60px;
+				position:absolute; top:9030px; left:90px;
+				font-size:60px; cursor:pointer; font-family: 'Aldrich', sans-serif; z-index:4}
+
+		.thnk>p {float:left; padding:10px;}
+		
+		.u {text-align:left; line-height:60px;
+			position:absolute; top:9090px; left:90px;
+			font-size:60px; cursor:pointer; font-family: 'Aldrich', sans-serif; z-index:5}		
+		.u>p {float:left; padding:10px;}	 
+		
+		.gtn01 {color:#c25c5e; font-family:Arial, Helvetica, sans-serif; font-size:30px;
+					position:absolute; top:9600px; left: 750px;}
+		.hr1_3 {position:absolute; top:9638px; left: 750px; width:170px;}
+		.hr1_4 {position:absolute; top:9645px; left: 760px; width:170px}
+		.gtn02 {color:#e1e1e1; font-family:"Times New Roman", Times, serif; font-size:24px;
+					position:absolute; top:9700px; left: 750px;}
+		.gtn03 {color:#e1e1e1; font-family:"Times New Roman", Times, serif; font-size:24px;
+					position:absolute; top:9730px; left: 750px;}
+					
+		/* etc ------------------------------------------------*/
+		.world{
+		-webkit-animation: spin1 2s infinite linear;
+		transform-origin: 50% 50%; animation: spin1 2s infinite linear; 
+		width: 15px; height: 15px;}
+		@-webkit-keyframes spin1 {
+		0% { -webkit-transform: rotate(0deg);}
+		100% { -webkit-transform: rotate(360deg);}
+		}
+
+/*
+.world2{position:absolute; top:3655px; left:432px;
+-webkit-animation: spin1 2s infinite linear;
+transform-origin: 50% 50%; animation: spin1 2s infinite linear; 
+width: 145px; height: 145px;}
+@-webkit-keyframes spin1 {
+0% { -webkit-transform: rotate(0deg);}
+100% { -webkit-transform: rotate(360deg);}
+}*/
+		
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div id="top_menu">
+					
+				<div id="logo">
+					<a href="#"><h2>PORTFOLIO</h2></a>
+				</div>
+				<ul>
+					<li class="on"><a href="#page1">Home</a></li>
+					<li><a href="#page2">About Me</a></li>
+					<li><a href="#page3">Website</a></li>
+                    <li><a href="#page4">Contact</a></li>
+				</ul>
+					
+			</div>
+            <div id="top_bt">top</div>
+			<div id="contents">
+<!--------------------------------------------- page 1 --------------------------------------------->            
+				<div id="page1"><img src="img/portfolio2.jpg">
+               
+                    <div class="name">HAJEONG<br>JEON</div>
+                    <hr class="hr1_0" color="#6ac5d2">
+                    <div class="star"><img src="img/portfolio7.png" width="15px" height="15px" class="world"></div>
+                    <div class="job">Web developer<br>volunteer</div>
+                  
+                </div>
+                
+<!--------------------------------------------- page 2 --------------------------------------------->                 
+				<div id="page2"><img src="img/portfolio3.jpg">
+                	<div class="abt">ABOUT ME<br></div>
+                    <hr class="hr1_1" color="#6ac5d2">
+                    <div class="abt2">I love Language, Enthusiasm<br><br>
+and Technology.</div> 
+                	  <div class="shw_btn"><img src="img/portfolio7.png" width="15px" height="15px" class="world"><!--<img src="img/portfoliosub3.png" width="20px" height="20px" class="adrop">-->    Scroll Down  </div>
+                </div>
+                
+                <img src="img/aboutme1.jpg">
+                <img src="img/aboutme2.jpg">
+                <img src="img/aboutme3.jpg">
+                <img src="img/aboutme4.jpg">
+
+
+<!--------------------------------------------- page 3 --------------------------------------------->                 
+				<div id="page3"><div class="page3inner"></div>
+                	<div>
+                    	<p class="wbst">WEBSITE</p><br>
+                        <hr class="hr1_2" color="#6ac5d2">
+                        <p class="wbst2">HTML &amp; CSS site pages</p>
+                        <div class="wbst3"><img src="img/portfolio7.png" width="15px" height="15px" class="world"><!--<img src="img/portfoliosub4.png" width="20px" height="20px" class="adrop">-->   Scroll Down  </div>
+                    </div> 
+                </div>
+                <a href="legabe.html"><div class="sub3_5" title="클릭하시면 웹사이트로 이동합니다."></div></a>
+                <a href="lumiere.html"><div class="sub3_7" title="클릭하시면 웹사이트로 이동합니다."></div></a>
+                
+                <!--<img src="img/sub3_5.jpg" title="클릭하시면 웹사이트로 이동합니다" class="sub3_4">
+				<img src="img/sub3_7.jpg" title="클릭하시면 웹사이트로 이동합니다" class="sub3_5">-->
+
+<!--------------------------------------------- page 4 --------------------------------------------->  
+           
+                <div id="page4"><img src="img/portfolio6.PNG">
+                <!--<img src="img/portfolio7.png" width="145px" height="145px" class="world2">-->
+                	<div class="thnk">
+                    	<p style="color:#bbe1eb">T</p>
+                    	<p style="color:#99d4df">H</p>
+                        <p style="color:#6ac5d2">A</p>
+                        <p style="color:#59b8ba">N</p>
+                        <p style="color:#319c98">K</p>
+                    </div>
+                    
+                    <div class="u">
+                    	<p style="color:#bbe1eb">Y</p>
+                    	<p style="color:#6ac5d2">O</p>
+                        <p style="color:#319c98">U</p>
+                    </div>
+                    
+                    <div class="touch">
+                    	<p class="gtn01"><b>GET IN TOUCH</b></p>
+                        <hr class="hr1_3" color="#528990">
+                        <hr class="hr1_4" color="#c25c5e">
+                        <p class="gtn02">010 - 2816 - 4319</p>
+                        <p class="gtn03">hajeongnj@gmail.com</p>
+                    </div>
+                </div> 
+             
+              
+			</div>
+		</div>
+	</body>
+</html>
